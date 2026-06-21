@@ -1,11 +1,83 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/container-queries";
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../js';
 
 @theme {
-    --font-sans:
-        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
-        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-        'Noto Color Emoji';
+  --font-sans: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  /* Color mappings from CSS variables */
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-secondary: var(--secondary);
+  --color-on-secondary: var(--on-secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-background: var(--background);
+  --color-on-background: var(--on-background);
+  --color-surface: var(--surface);
+  --color-on-surface: var(--on-surface);
+  --color-surface-variant: var(--surface-variant);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-tint: var(--surface-tint);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-error: var(--error);
+  --color-on-error: var(--on-error);
+
+  /* Spacing */
+  --spacing-gutter: 24px;
+  --spacing-container-max: 1200px;
+}
+
+@layer base {
+  :root {
+    /* Fresh · Clean · Compact — Light Only */
+    --primary: #0F172A;
+    --on-primary: #FFFFFF;
+    --primary-container: #F1F5F9;
+    --on-primary-container: #0F172A;
+
+    --secondary: #2563EB;
+    --on-secondary: #FFFFFF;
+    --secondary-container: #DBEAFE;
+    --on-secondary-container: #1E3A8A;
+
+    --background: #FFFFFF;
+    --on-background: #1E293B;
+
+    --surface: #FFFFFF;
+    --on-surface: #1E293B;
+
+    --surface-variant: #F8FAFC;
+    --on-surface-variant: #64748B;
+
+    --surface-container: #F8FAFC;
+    --surface-container-high: #F1F5F9;
+    --surface-container-low: #F8FAFC;
+    --surface-container-lowest: #FFFFFF;
+
+    --surface-tint: #1E293B;
+
+    --outline: #CBD5E1;
+    --outline-variant: #E2E8F0;
+
+    --error: #DC2626;
+    --on-error: #FFFFFF;
+  }
+
+  body {
+    @apply bg-background text-on-surface font-sans antialiased;
+  }
 }
