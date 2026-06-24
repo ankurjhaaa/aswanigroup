@@ -173,7 +173,7 @@ export default function Home() {
 
             {/* ─── Become a Distributor Campaign ─── */}
             <section className="px-gutter py-16 md:py-20 bg-surface-container-high border-b border-outline-variant">
-                <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                     {/* Left: Interactive Video & Poster Player */}
                     <motion.div 
                         initial={{ opacity: 0, x: -20 }} 
@@ -230,15 +230,15 @@ export default function Home() {
                         whileInView={{ opacity: 1, x: 0 }} 
                         viewport={{ once: true, margin: '-60px' }} 
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="lg:col-span-6"
+                        className="lg:col-span-6 flex flex-col items-start text-left"
                     >
-                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded bg-secondary/10 text-secondary border border-secondary/20 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-4 mx-auto md:mx-0">
+                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded bg-secondary/10 text-secondary border border-secondary/20 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-4">
                             Now Appointing Distributors
                         </span>
-                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-primary tracking-tight leading-tight mb-4 text-center md:text-left">
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-primary tracking-tight leading-tight mb-4">
                             Distributor Opportunities: Signature & Royal Challenge
                         </h2>
-                        <p className="text-on-surface-variant text-sm md:text-lg leading-relaxed mb-6 text-center md:text-left">
+                        <p className="text-on-surface-variant text-sm md:text-lg leading-relaxed mb-6">
                             Ashwin Water Industries is launching **Signature** and **Royal Challenge Packaged Drinking Water** across Bihar & Jharkhand. We are actively seeking local distribution partners.
                         </p>
 
@@ -263,10 +263,10 @@ export default function Home() {
                         </div>
 
                         {/* Contact Callouts */}
-                        <div className="bg-white rounded border border-outline-variant p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                        <div className="w-full bg-white rounded border border-outline-variant p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left">
                             <div>
                                 <div className="text-xs md:text-sm text-on-surface-variant font-semibold uppercase tracking-wide">Distributor Support Hotline</div>
-                                <div className="text-xl md:text-2xl font-serif font-bold text-primary mt-1 flex items-center justify-center sm:justify-start gap-2">
+                                <div className="text-xl md:text-2xl font-serif font-bold text-primary mt-1 flex items-center justify-start gap-2">
                                     <span>9507488833</span>
                                     <span className="text-outline">/</span>
                                     <span>44</span>
