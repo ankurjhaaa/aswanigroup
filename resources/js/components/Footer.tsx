@@ -12,14 +12,14 @@ export default function Footer() {
                             <div className="w-8 h-8 bg-secondary rounded-md flex items-center justify-center text-white text-sm font-bold">
                                 A
                             </div>
-                            <span className="text-xl font-bold tracking-tight">Aswani Group</span>
+                            <span className="text-xl font-bold tracking-tight">Ashwin Group</span>
                         </div>
                         <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-xs">
-                            Building the structural and operational foundations for global industries since 1985.
+                            Powering a smart, sustainable, and trusted future across water, energy, and trade industries.
                         </p>
                         <div className="flex items-center gap-2 text-white/60 text-sm">
                             <MapPin size={14} />
-                            <span>New York · Dubai · Singapore</span>
+                            <span>Bihar · Jharkhand · West Bengal</span>
                         </div>
                     </div>
 
@@ -44,9 +44,9 @@ export default function Footer() {
 
                     {/* Industries */}
                     <div className="md:col-span-3">
-                        <h4 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4">Industries</h4>
+                        <h4 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4">Divisions</h4>
                         <ul className="space-y-3">
-                            {['Infrastructure', 'Construction', 'Manufacturing', 'Energy', 'Logistics'].map(ind => (
+                            {['Water Industries', 'Energie Pvt. Ltd.', 'Traders & Logistics'].map(ind => (
                                 <li key={ind}>
                                     <Link href="/industries" className="text-white/70 hover:text-white transition-colors text-sm">
                                         {ind}
@@ -66,7 +66,7 @@ export default function Footer() {
                             </div>
                             <div className="flex items-center gap-3 text-sm text-white/70">
                                 <Mail size={16} className="text-secondary shrink-0" />
-                                <span>info@aswanigroup.com</span>
+                                <span>info@ashwingroup.com</span>
                             </div>
                         </div>
                         <Link
@@ -80,7 +80,7 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
-                    <span>© {new Date().getFullYear()} Aswani Group. All rights reserved.</span>
+                    <span>© {new Date().getFullYear()} Ashwin Group. All rights reserved.</span>
                     <div className="flex items-center gap-6">
                         <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
                         <a href="#" className="hover:text-white transition-colors">Twitter</a>

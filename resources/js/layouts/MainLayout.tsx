@@ -14,7 +14,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             <AnimatePresence mode="wait">
                 <motion.main
                     key={typeof window !== 'undefined' ? window.location.pathname : 'server'}
-                    className={`flex-1 ${!isHome ? 'pt-16' : ''}`}
+                    className="flex-1"
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}

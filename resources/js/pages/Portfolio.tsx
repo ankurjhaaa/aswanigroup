@@ -2,18 +2,20 @@ import MainLayout from '../layouts/MainLayout';
 import { Head } from '@inertiajs/react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, MapPin, Calendar } from 'lucide-react';
+import { ArrowUpRight, MapPin, Calendar, Download } from 'lucide-react';
 
 const projects = [
-    { id: 1, title: 'Skyline Metro Hub', category: 'Infrastructure', location: 'Dubai, UAE', year: '2023', image: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=2070&auto=format&fit=crop' },
-    { id: 2, title: 'EcoTech Manufacturing Plant', category: 'Manufacturing', location: 'Stuttgart, Germany', year: '2022', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop' },
-    { id: 3, title: 'Solar Array Complex Alpha', category: 'Energy', location: 'Nevada, USA', year: '2024', image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop' },
-    { id: 4, title: 'Global Trade Port', category: 'Logistics', location: 'Singapore', year: '2021', image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070&auto=format&fit=crop' },
-    { id: 5, title: 'Financial District Tower', category: 'Construction', location: 'London, UK', year: '2023', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop' },
-    { id: 6, title: 'Wind Farm Delta', category: 'Energy', location: 'North Sea', year: '2025', image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2070&auto=format&fit=crop' },
+    { id: 1, title: 'Signature Mineral Water Unit', category: 'Water', location: 'Patna, Bihar', year: '2024', image: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?q=80&w=2000&auto=format&fit=crop' },
+    { id: 2, title: 'Royal Challenge Bottling Plant', category: 'Water', location: 'Ranchi, Jharkhand', year: '2025', image: 'https://images.unsplash.com/photo-1518152006812-cdab29b069a8?q=80&w=2000&auto=format&fit=crop' },
+    { id: 3, title: 'Eco-Plug EV Charging Hubs', category: 'Energie', location: 'Kolkata, West Bengal', year: '2024', image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=2000&auto=format&fit=crop' },
+    { id: 4, title: 'Enaure Digital Retail Platform', category: 'Energie', location: 'National Coverage', year: '2023', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop' },
+    { id: 5, title: 'Barista Coffee Cafe - Patliputra', category: 'Traders', location: 'Patliputra, Patna', year: '2022', image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000&auto=format&fit=crop' },
+    { id: 6, title: 'Barista Coffee Cafe - Gandhi Maidan', category: 'Traders', location: 'Gandhi Maidan, Patna', year: '2019', image: 'https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=2000&auto=format&fit=crop' },
+    { id: 7, title: 'Barista Corporate Vending Network', category: 'Traders', location: 'Patna, Bihar', year: '2025', image: 'https://images.unsplash.com/photo-1517256064527-09c53b2d0bc6?q=80&w=2000&auto=format&fit=crop' },
+    { id: 8, title: 'FMCG Distribution Depot', category: 'Traders', location: 'Patna, Bihar', year: '2025', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop' },
 ];
 
-const categories = ['All', 'Infrastructure', 'Construction', 'Energy', 'Manufacturing', 'Logistics'];
+const categories = ['All', 'Water', 'Energie', 'Traders'];
 
 export default function Portfolio() {
     const [filter, setFilter] = useState('All');
@@ -21,33 +23,76 @@ export default function Portfolio() {
 
     return (
         <MainLayout>
-            <Head title="Portfolio - Aswani Group" />
+            <Head title="Portfolio - Ashwin Group" />
 
-            {/* Hero + Filters */}
-            <section className="px-gutter py-16 md:py-20 bg-surface-variant border-b border-outline-variant">
-                <div className="max-w-container-max mx-auto text-center max-w-2xl">
-                    <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-primary tracking-tight mb-4">
-                            Featured <span className="text-secondary">Projects</span>
-                        </h1>
-                        <p className="text-on-surface-variant leading-relaxed mb-8">
-                            Discover how we transform blueprints into landmarks, powering communities and economies across the globe.
-                        </p>
+            {/* Hero */}
+            <section className="relative px-gutter pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-primary border-b border-outline-variant">
+                {/* Visual Backdrop Overlay */}
+                <div className="absolute inset-0 z-0">
+                    <img 
+                        src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop" 
+                        alt="Portfolio Hub" 
+                        className="w-full h-full object-cover opacity-25 mix-blend-luminosity" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-primary/95 to-primary"></div>
+                    {/* Ambient Glow */}
+                    <div className="absolute top-1/4 right-1/4 w-[350px] h-[350px] bg-secondary/15 rounded-full blur-[120px] pointer-events-none mix-blend-screen animate-pulse" style={{ animationDuration: '6s' }} />
+                    {/* Dotted Pattern */}
+                    <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] pointer-events-none" />
+                </div>
+                
+                <div className="max-w-container-max mx-auto relative z-10 text-center max-w-3xl">
+                    <motion.span 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="inline-block text-xs font-bold text-secondary uppercase tracking-widest bg-secondary-container px-3 py-1 rounded mb-4"
+                    >
+                        Project Showcases
+                    </motion.span>
+                    <motion.h1 
+                        initial={{ opacity: 0, y: 16 }} 
+                        animate={{ opacity: 1, y: 0 }} 
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4"
+                    >
+                        Our Operational <span className="text-secondary">Portfolio</span>
+                    </motion.h1>
+                    <motion.p 
+                        initial={{ opacity: 0, y: 16 }} 
+                        animate={{ opacity: 1, y: 0 }} 
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="text-white/80 leading-relaxed mb-8 text-sm md:text-base max-w-2xl mx-auto"
+                    >
+                        Explore our state-of-the-art packaging facilities, green solar complexes, smart EV charging stations, and Master Franchise Barista Coffee operations in Patna.
+                    </motion.p>
 
-                        {/* Filter Chips */}
-                        <div className="flex flex-wrap justify-center gap-2">
-                            {categories.map(cat => (
-                                <button key={cat} onClick={() => setFilter(cat)}
-                                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors border ${
-                                        filter === cat
-                                            ? 'bg-primary text-white border-primary'
-                                            : 'bg-white text-on-surface-variant border-outline-variant hover:bg-surface-container-high'
-                                    }`}>
-                                    {cat}
-                                </button>
-                            ))}
-                        </div>
-                    </motion.div>
+                    {/* Filter Chips */}
+                    <div className="flex flex-wrap justify-center gap-2 mb-4">
+                        {categories.map(cat => (
+                            <button key={cat} onClick={() => setFilter(cat)}
+                                className={`px-4 py-2 rounded-md text-sm font-semibold transition-all border ${
+                                    filter === cat
+                                        ? 'bg-secondary text-white border-secondary shadow-md scale-102'
+                                        : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
+                                }`}>
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+
+                    {filter === 'Traders' && (
+                        <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="inline-flex justify-center mt-2">
+                            <a 
+                                href="/images/Barista_Brand_Deck_2026.pdf" 
+                                download 
+                                className="inline-flex items-center gap-1.5 text-xs font-bold text-secondary bg-secondary-container hover:bg-secondary hover:text-white transition-all px-4 py-2 rounded-md shadow-sm"
+                            >
+                                <Download size={13} />
+                                Download Barista Brand Deck (PDF)
+                            </a>
+                        </motion.div>
+                    )}
                 </div>
             </section>
 
