@@ -76,7 +76,7 @@ export default function Industries() {
             <section className="relative px-gutter pt-32 pb-16 md:pt-40 md:pb-24 bg-primary flex items-center border-b border-outline-variant">
                 <div className="absolute inset-0 z-0">
                     <img 
-                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
+                        src="/images/industries-hero-bg.png" 
                         alt="Industries Collaboration" 
                         className="w-full h-full object-cover opacity-20" 
                     />

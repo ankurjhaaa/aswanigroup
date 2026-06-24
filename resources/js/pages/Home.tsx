@@ -87,13 +87,69 @@ export default function Home() {
                         initial={{ opacity: 0, x: 20 }} 
                         animate={{ opacity: 1, x: 0 }} 
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="hidden md:block"
+                        className="hidden md:block relative w-full h-[400px] overflow-hidden rounded shadow-lg border border-white/10 bg-black/20"
                     >
-                        <img 
-                            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2074&auto=format&fit=crop" 
-                            alt="Sustainable Corporate Growth" 
-                            className="w-full h-[400px] object-cover rounded shadow-lg border border-white/10"
-                        />
+                        <div className="absolute top-0 left-0 w-full flex flex-col animate-vertical-scroll cursor-pointer">
+                            {/* Set 1 */}
+                            <div className="h-[400px] w-full flex-shrink-0 relative">
+                                <img src="/images/home-headquarters.png" alt="Corporate Headquarters" className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-end p-6">
+                                    <span className="text-[10px] font-bold text-secondary-container uppercase tracking-wider mb-1">Infrastructure</span>
+                                    <h3 className="text-white font-serif font-bold text-lg">Corporate Headquarters</h3>
+                                </div>
+                            </div>
+                            <div className="h-[400px] w-full flex-shrink-0 relative">
+                                <img src="/images/portfolio-water-1.png" alt="Signature Mineral Water Unit" className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-end p-6">
+                                    <span className="text-[10px] font-bold text-secondary-container uppercase tracking-wider mb-1">Beverage & Water</span>
+                                    <h3 className="text-white font-serif font-bold text-lg">Signature Mineral Water</h3>
+                                </div>
+                            </div>
+                            <div className="h-[400px] w-full flex-shrink-0 relative">
+                                <img src="/images/portfolio-energy-1.png" alt="Eco-Plug EV Charging Hubs" className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-end p-6">
+                                    <span className="text-[10px] font-bold text-secondary-container uppercase tracking-wider mb-1">Renewable Energy</span>
+                                    <h3 className="text-white font-serif font-bold text-lg">EV Charging & Solar Hubs</h3>
+                                </div>
+                            </div>
+                            <div className="h-[400px] w-full flex-shrink-0 relative">
+                                <img src="/images/portfolio-traders-1.png" alt="Barista Coffee Cafe" className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-end p-6">
+                                    <span className="text-[10px] font-bold text-secondary-container uppercase tracking-wider mb-1">Franchise & Trade</span>
+                                    <h3 className="text-white font-serif font-bold text-lg">Barista Coffee Operations</h3>
+                                </div>
+                            </div>
+
+                            {/* Set 2 (Duplicate for Infinite Loop) */}
+                            <div className="h-[400px] w-full flex-shrink-0 relative">
+                                <img src="/images/home-headquarters.png" alt="Corporate Headquarters" className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-end p-6">
+                                    <span className="text-[10px] font-bold text-secondary-container uppercase tracking-wider mb-1">Infrastructure</span>
+                                    <h3 className="text-white font-serif font-bold text-lg">Corporate Headquarters</h3>
+                                </div>
+                            </div>
+                            <div className="h-[400px] w-full flex-shrink-0 relative">
+                                <img src="/images/portfolio-water-1.png" alt="Signature Mineral Water Unit" className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-end p-6">
+                                    <span className="text-[10px] font-bold text-secondary-container uppercase tracking-wider mb-1">Beverage & Water</span>
+                                    <h3 className="text-white font-serif font-bold text-lg">Signature Mineral Water</h3>
+                                </div>
+                            </div>
+                            <div className="h-[400px] w-full flex-shrink-0 relative">
+                                <img src="/images/portfolio-energy-1.png" alt="Eco-Plug EV Charging Hubs" className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-end p-6">
+                                    <span className="text-[10px] font-bold text-secondary-container uppercase tracking-wider mb-1">Renewable Energy</span>
+                                    <h3 className="text-white font-serif font-bold text-lg">EV Charging & Solar Hubs</h3>
+                                </div>
+                            </div>
+                            <div className="h-[400px] w-full flex-shrink-0 relative">
+                                <img src="/images/portfolio-traders-1.png" alt="Barista Coffee Cafe" className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-end p-6">
+                                    <span className="text-[10px] font-bold text-secondary-container uppercase tracking-wider mb-1">Franchise & Trade</span>
+                                    <h3 className="text-white font-serif font-bold text-lg">Barista Coffee Operations</h3>
+                                </div>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </section>
@@ -362,7 +418,7 @@ export default function Home() {
 
                     <motion.div initial={{ opacity: 0, scale: 0.98 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
                         className="relative aspect-[4/3] bg-white border border-outline-variant shadow-sm p-3">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Ashwin Group Corporate Headquarters" className="w-full h-full object-cover border border-outline-variant/50" />
+                        <img src="/images/home-headquarters.png" alt="Ashwin Group Corporate Headquarters" className="w-full h-full object-cover border border-outline-variant/50" />
                         <div className="absolute bottom-6 left-6 right-6 bg-white p-4 border border-outline-variant shadow-lg">
                             <div className="font-bold text-primary text-base mb-1 uppercase tracking-wider">Regional Footprint</div>
                             <div className="text-sm text-on-surface-variant leading-relaxed">Growing operations across Bihar, Jharkhand, and neighboring Indian states.</div>

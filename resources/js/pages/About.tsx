@@ -29,7 +29,7 @@ export default function About() {
             <section className="relative px-gutter pt-32 pb-16 md:pt-40 md:pb-24 bg-primary flex items-center border-b border-outline-variant">
                 <div className="absolute inset-0 z-0">
                     <img 
-                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                        src="/images/about-hero-bg.png" 
                         alt="Corporate Background" 
                         className="w-full h-full object-cover opacity-20" 
                     />
@@ -60,7 +60,7 @@ export default function About() {
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center relative z-10">
                             <motion.div {...fadeUp} className="lg:col-span-5 h-full">
                                 <div className="h-full aspect-square lg:aspect-auto w-full bg-surface-container-low border-b lg:border-b-0 lg:border-r border-outline-variant">
-                                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop" alt="Chairman" className="w-full h-full object-cover" />
+                                    <img src="/images/chairman-portrait.png" alt="Chairman" className="w-full h-full object-cover" />
                                 </div>
                             </motion.div>
 

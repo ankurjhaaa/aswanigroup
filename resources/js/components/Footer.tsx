@@ -9,9 +9,11 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="md:col-span-4">
                         <div className="flex items-center gap-2.5 mb-4">
-                            <div className="w-8 h-8 bg-secondary rounded-md flex items-center justify-center text-white text-sm font-bold">
-                                A
-                            </div>
+                            <img 
+                                src="/images/logo.png" 
+                                alt="Ashwin Group Logo" 
+                                className="w-8 h-8 object-contain" 
+                            />
                             <span className="text-xl font-bold tracking-tight">Ashwin Group</span>
                         </div>
                         <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-xs">

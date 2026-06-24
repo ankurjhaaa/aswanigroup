@@ -5,14 +5,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, MapPin, Calendar, Download } from 'lucide-react';
 
 const projects = [
-    { id: 1, title: 'Signature Mineral Water Unit', category: 'Water', location: 'Patna, Bihar', year: '2024', image: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?q=80&w=2000&auto=format&fit=crop' },
-    { id: 2, title: 'Royal Challenge Bottling Plant', category: 'Water', location: 'Ranchi, Jharkhand', year: '2025', image: 'https://images.unsplash.com/photo-1518152006812-cdab29b069a8?q=80&w=2000&auto=format&fit=crop' },
-    { id: 3, title: 'Eco-Plug EV Charging Hubs', category: 'Energie', location: 'Kolkata, West Bengal', year: '2024', image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=2000&auto=format&fit=crop' },
-    { id: 4, title: 'Enaure Digital Retail Platform', category: 'Energie', location: 'National Coverage', year: '2023', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop' },
-    { id: 5, title: 'Barista Coffee Cafe - Patliputra', category: 'Traders', location: 'Patliputra, Patna', year: '2022', image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000&auto=format&fit=crop' },
-    { id: 6, title: 'Barista Coffee Cafe - Gandhi Maidan', category: 'Traders', location: 'Gandhi Maidan, Patna', year: '2019', image: 'https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=2000&auto=format&fit=crop' },
-    { id: 7, title: 'Barista Corporate Vending Network', category: 'Traders', location: 'Patna, Bihar', year: '2025', image: 'https://images.unsplash.com/photo-1517256064527-09c53b2d0bc6?q=80&w=2000&auto=format&fit=crop' },
-    { id: 8, title: 'FMCG Distribution Depot', category: 'Traders', location: 'Patna, Bihar', year: '2025', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop' },
+    { id: 1, title: 'Signature Mineral Water Unit', category: 'Water', location: 'Patna, Bihar', year: '2024', image: '/images/portfolio-water-1.png' },
+    { id: 2, title: 'Royal Challenge Bottling Plant', category: 'Water', location: 'Ranchi, Jharkhand', year: '2025', image: '/images/portfolio-water-2.png' },
+    { id: 3, title: 'Eco-Plug EV Charging Hubs', category: 'Energie', location: 'Kolkata, West Bengal', year: '2024', image: '/images/portfolio-energy-1.png' },
+    { id: 4, title: 'Enaure Digital Retail Platform', category: 'Energie', location: 'National Coverage', year: '2023', image: '/images/portfolio-energy-2.png' },
+    { id: 5, title: 'Barista Coffee Cafe - Patliputra', category: 'Traders', location: 'Patliputra, Patna', year: '2022', image: '/images/portfolio-traders-1.png' },
+    { id: 6, title: 'Barista Coffee Cafe - Gandhi Maidan', category: 'Traders', location: 'Gandhi Maidan, Patna', year: '2019', image: '/images/portfolio-traders-2.png' },
+    { id: 7, title: 'Barista Corporate Vending Network', category: 'Traders', location: 'Patna, Bihar', year: '2025', image: '/images/portfolio-traders-3.png' },
+    { id: 8, title: 'FMCG Distribution Depot', category: 'Traders', location: 'Patna, Bihar', year: '2025', image: '/images/portfolio-traders-4.png' },
 ];
 
 const categories = ['All', 'Water', 'Energie', 'Traders'];
@@ -45,7 +45,7 @@ export default function Portfolio() {
             <section className="relative px-gutter pt-32 pb-16 md:pt-40 md:pb-24 bg-primary border-b border-outline-variant flex items-center">
                 <div className="absolute inset-0 z-0">
                     <img 
-                        src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop" 
+                        src="/images/portfolio-hero-bg.png" 
                         alt="Portfolio Hub" 
                         className="w-full h-full object-cover opacity-20" 
                     />

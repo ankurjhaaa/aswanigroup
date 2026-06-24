@@ -28,7 +28,7 @@ export default function Contact() {
             <section className="relative px-gutter pt-32 pb-16 md:pt-40 md:pb-24 bg-primary flex items-center border-b border-outline-variant">
                 <div className="absolute inset-0 z-0">
                     <img 
-                        src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
+                        src="/images/contact-hero-bg.png" 
                         alt="Office Workspace" 
                         className="w-full h-full object-cover opacity-20" 
                     />

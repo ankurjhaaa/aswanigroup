@@ -41,9 +41,11 @@ export default function TopNavBar() {
             <div className="max-w-container-max mx-auto px-gutter flex items-center justify-between h-20">
                 {/* Logo */}
                 <Link href="/" className={`flex items-center gap-3 group ${logoClass}`}>
-                    <div className={`w-10 h-10 rounded flex items-center justify-center text-lg font-bold transition-transform group-hover:scale-105 shadow-sm ${logoBgClass}`}>
-                        A
-                    </div>
+                    <img 
+                        src="/images/logo.png" 
+                        alt="Ashwin Group Logo" 
+                        className="w-10 h-10 object-contain transition-transform group-hover:scale-105" 
+                    />
                     <span className="text-xl font-serif font-bold tracking-tight">Ashwin Group</span>
                 </Link>
 
@@ -114,9 +116,11 @@ export default function TopNavBar() {
                 >
                     <div className="flex items-center justify-between p-5 border-b border-outline-variant">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded bg-primary text-white flex items-center justify-center text-lg font-bold shadow-sm">
-                                A
-                            </div>
+                            <img 
+                                src="/images/logo.png" 
+                                alt="Ashwin Group Logo" 
+                                className="w-10 h-10 object-contain" 
+                            />
                             <span className="text-xl font-serif font-bold tracking-tight">Ashwin Group</span>
                         </div>
                         <button
