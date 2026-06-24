@@ -17,6 +17,22 @@ const projects = [
 
 const categories = ['All', 'Water', 'Energie', 'Traders'];
 
+const fadeUp = {
+    initial: { opacity: 0, y: 16 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-60px' },
+    transition: { duration: 0.5 }
+};
+
+const stagger = {
+    animate: { transition: { staggerChildren: 0.1 } }
+};
+
+const fadeIn = {
+    initial: { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
 export default function Portfolio() {
     const [filter, setFilter] = useState('All');
     const filtered = projects.filter(p => filter === 'All' || p.category === filter);
@@ -26,118 +42,95 @@ export default function Portfolio() {
             <Head title="Portfolio - Ashwin Group" />
 
             {/* Hero */}
-            <section className="relative px-gutter pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-primary border-b border-outline-variant">
-                {/* Visual Backdrop Overlay */}
+            <section className="relative px-gutter pt-32 pb-16 md:pt-40 md:pb-24 bg-primary border-b border-outline-variant flex items-center">
                 <div className="absolute inset-0 z-0">
                     <img 
                         src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop" 
                         alt="Portfolio Hub" 
-                        className="w-full h-full object-cover opacity-25 mix-blend-luminosity" 
+                        className="w-full h-full object-cover opacity-20" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-primary/95 to-primary"></div>
-                    {/* Ambient Glow */}
-                    <div className="absolute top-1/4 right-1/4 w-[350px] h-[350px] bg-secondary/15 rounded-full blur-[120px] pointer-events-none mix-blend-screen animate-pulse" style={{ animationDuration: '6s' }} />
-                    {/* Dotted Pattern */}
-                    <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] pointer-events-none" />
+                    <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
                 </div>
                 
-                <div className="max-w-container-max mx-auto relative z-10 text-center max-w-3xl">
-                    <motion.span 
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="inline-block text-xs font-bold text-secondary uppercase tracking-widest bg-secondary-container px-3 py-1 rounded mb-4"
-                    >
-                        Project Showcases
-                    </motion.span>
-                    <motion.h1 
-                        initial={{ opacity: 0, y: 16 }} 
-                        animate={{ opacity: 1, y: 0 }} 
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4"
-                    >
-                        Our Operational <span className="text-secondary">Portfolio</span>
-                    </motion.h1>
-                    <motion.p 
-                        initial={{ opacity: 0, y: 16 }} 
-                        animate={{ opacity: 1, y: 0 }} 
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-white/80 leading-relaxed mb-8 text-sm md:text-base max-w-2xl mx-auto"
-                    >
-                        Explore our state-of-the-art packaging facilities, green solar complexes, smart EV charging stations, and Master Franchise Barista Coffee operations in Patna.
-                    </motion.p>
-
-                    {/* Filter Chips */}
-                    <div className="flex flex-wrap justify-center gap-2 mb-4">
-                        {categories.map(cat => (
-                            <button key={cat} onClick={() => setFilter(cat)}
-                                className={`px-4 py-2 rounded-md text-sm font-semibold transition-all border ${
-                                    filter === cat
-                                        ? 'bg-secondary text-white border-secondary shadow-md scale-102'
-                                        : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
-                                }`}>
-                                {cat}
-                            </button>
-                        ))}
-                    </div>
-
-                    {filter === 'Traders' && (
-                        <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="inline-flex justify-center mt-2">
-                            <a 
-                                href="/images/Barista_Brand_Deck_2026.pdf" 
-                                download 
-                                className="inline-flex items-center gap-1.5 text-xs font-bold text-secondary bg-secondary-container hover:bg-secondary hover:text-white transition-all px-4 py-2 rounded-md shadow-sm"
-                            >
-                                <Download size={13} />
-                                Download Barista Brand Deck (PDF)
-                            </a>
+                <div className="max-w-container-max mx-auto relative z-10 w-full text-center md:text-left">
+                    <div className="max-w-4xl mx-auto md:mx-0">
+                        <motion.div initial="initial" animate="animate" variants={stagger} className="max-w-3xl text-center md:text-left">
+                            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 border border-secondary/30 text-secondary-container text-[10px] md:text-xs font-semibold uppercase tracking-wider mb-5 rounded bg-secondary/10 mx-auto md:mx-0">
+                                Our Brands
+                            </motion.div>
+                            <motion.h1 variants={fadeIn} className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-4 leading-tight">
+                                Products & <span className="text-secondary-container">Portfolio.</span>
+                            </motion.h1>
+                            <motion.p variants={fadeIn} className="text-base md:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto md:mx-0 mb-8">
+                                Explore our premium range of packaged drinking water, crafted for purity and trusted by millions across the region.
+                            </motion.p>
                         </motion.div>
-                    )}
+
+                        {/* Filter Chips */}
+                        <div className="flex flex-wrap justify-center gap-3 mb-6">
+                            {categories.map(cat => (
+                                <button key={cat} onClick={() => setFilter(cat)}
+                                    className={`px-5 py-2.5 rounded text-sm font-bold tracking-wide transition-all border ${
+                                        filter === cat
+                                            ? 'bg-secondary text-white border-secondary'
+                                            : 'bg-white/10 text-white border-white/30 hover:bg-white/20'
+                                    }`}>
+                                    {cat}
+                                </button>
+                            ))}
+                        </div>
+
+                        {filter === 'Traders' && (
+                            <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="inline-flex justify-center mt-2">
+                                <a 
+                                    href="/images/Barista_Brand_Deck_2026.pdf" 
+                                    download 
+                                    className="inline-flex items-center gap-2 text-sm font-bold text-primary bg-white hover:bg-surface-variant transition-colors px-6 py-3 rounded border border-outline-variant"
+                                >
+                                    <Download size={18} />
+                                    Download Barista Brand Deck
+                                </a>
+                            </motion.div>
+                        )}
+                    </div>
                 </div>
             </section>
 
             {/* Grid */}
-            <section className="px-gutter py-12 md:py-16">
+            <section className="px-gutter py-12 md:py-16 bg-surface-container-low">
                 <div className="max-w-container-max mx-auto">
-                    <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                    <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         <AnimatePresence mode="popLayout">
                             {filtered.map(project => (
                                 <motion.div layout key={project.id}
-                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    initial={{ opacity: 0, scale: 0.98 }}
                                     animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    exit={{ opacity: 0, scale: 0.98 }}
                                     transition={{ duration: 0.3 }}
-                                    className="group cursor-pointer">
+                                    className="group cursor-pointer bg-white border border-outline-variant rounded p-4 shadow-sm hover:shadow-md transition-shadow">
 
-                                    <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-primary shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                                        <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
-                                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300" />
-
-                                        {/* Overlay */}
-                                        <div className="absolute inset-0 p-4 flex flex-col justify-between">
-                                            <div className="flex justify-between items-start">
-                                                <span className="bg-white text-primary text-xs font-semibold px-2.5 py-1 rounded-md shadow-sm">{project.category}</span>
-                                                <div className="w-8 h-8 bg-secondary rounded-md flex items-center justify-center text-white opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                                                    <ArrowUpRight size={16} />
-                                                </div>
-                                            </div>
-
-                                            <div className="flex items-center gap-3 text-white/90 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                <span className="flex items-center gap-1"><MapPin size={13} /> {project.location}</span>
-                                                <span className="flex items-center gap-1"><Calendar size={13} /> {project.year}</span>
-                                            </div>
+                                    <div className="relative aspect-[4/3] rounded overflow-hidden bg-outline-variant mb-4 border border-outline-variant">
+                                        <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                                        
+                                        <div className="absolute top-3 left-3">
+                                            <span className="bg-primary text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded">{project.category}</span>
                                         </div>
                                     </div>
 
-                                    <h3 className="text-lg font-bold text-primary mt-3 mb-1 group-hover:text-secondary transition-colors">{project.title}</h3>
-                                    <div className="h-0.5 w-8 bg-secondary rounded-full group-hover:w-full transition-all duration-400" />
+                                    <div className="px-2 pb-2">
+                                        <h3 className="text-xl font-serif font-bold text-primary mb-3 leading-tight">{project.title}</h3>
+                                        <div className="flex flex-wrap items-center gap-4 text-on-surface-variant text-sm font-semibold">
+                                            <span className="flex items-center gap-1.5"><MapPin size={16} className="text-secondary" /> {project.location}</span>
+                                            <span className="flex items-center gap-1.5"><Calendar size={16} className="text-secondary" /> {project.year}</span>
+                                        </div>
+                                    </div>
                                 </motion.div>
                             ))}
                         </AnimatePresence>
                     </motion.div>
 
                     {filtered.length === 0 && (
-                        <div className="text-center py-20 text-on-surface-variant">No projects found for this category.</div>
+                        <div className="text-center py-20 text-on-surface-variant font-serif text-lg">No projects found for this category.</div>
                     )}
                 </div>
             </section>

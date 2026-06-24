@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@300;400;700;900&display=swap');
 @import "tailwindcss";
 
 @plugin "@tailwindcss/forms";
@@ -9,7 +9,8 @@
 @source '../js';
 
 @theme {
-  --font-sans: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Merriweather', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
   /* Color mappings from CSS variables */
   --color-primary: var(--primary);
@@ -43,16 +44,16 @@
 
 @layer base {
   :root {
-    /* Fresh · Clean · Compact — Light Only */
-    --primary: #0F172A;
+    /* Institutional & Corporate — Light Only */
+    --primary: #002147;
     --on-primary: #FFFFFF;
     --primary-container: #F1F5F9;
-    --on-primary-container: #0F172A;
+    --on-primary-container: #001229;
 
-    --secondary: #2563EB;
+    --secondary: #8C1515;
     --on-secondary: #FFFFFF;
-    --secondary-container: #DBEAFE;
-    --on-secondary-container: #1E3A8A;
+    --secondary-container: #FDE8E8;
+    --on-secondary-container: #6B0E0E;
 
     --background: #FFFFFF;
     --on-background: #1E293B;

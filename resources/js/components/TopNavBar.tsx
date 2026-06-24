@@ -28,35 +28,40 @@ export default function TopNavBar() {
 
     const isTransparent = !scrolled && !open;
 
-    const navClass = isTransparent
-        ? 'bg-transparent border-b border-transparent'
-        : 'bg-primary/90 backdrop-blur-md shadow-lg border-b border-white/10';
+    const navClass = scrolled
+        ? 'bg-white shadow-sm border-b border-outline-variant text-primary'
+        : 'bg-transparent border-b border-white/10 text-white';
 
+    const logoClass = scrolled ? 'text-primary' : 'text-white';
+    const logoBgClass = scrolled ? 'bg-primary text-white' : 'bg-white text-primary';
+    
     return (
         <>
         <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${navClass}`}>
-            <div className="max-w-container-max mx-auto px-gutter flex items-center justify-between h-16">
+            <div className="max-w-container-max mx-auto px-gutter flex items-center justify-between h-20">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2.5 group text-white">
-                    <div className="w-8 h-8 rounded-md flex items-center justify-center text-sm font-bold bg-white text-primary transition-transform group-hover:scale-105">
+                <Link href="/" className={`flex items-center gap-3 group ${logoClass}`}>
+                    <div className={`w-10 h-10 rounded flex items-center justify-center text-lg font-bold transition-transform group-hover:scale-105 shadow-sm ${logoBgClass}`}>
                         A
                     </div>
-                    <span className="text-lg font-bold tracking-tight">Ashwin Group</span>
+                    <span className="text-xl font-serif font-bold tracking-tight">Ashwin Group</span>
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-6">
+                <nav className="hidden md:flex items-center gap-8">
                     {links.map(({ label, href }) => {
                         const active = url === href;
+                        const linkColor = scrolled 
+                            ? (active ? 'text-secondary after:bg-secondary' : 'text-on-surface-variant hover:text-primary after:bg-primary')
+                            : (active ? 'text-white after:bg-white' : 'text-white/80 hover:text-white after:bg-white');
+
                         return (
                             <Link
                                 key={label}
                                 href={href}
-                                className={`relative py-1 text-sm font-semibold transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:transition-all after:duration-300 ${
-                                    active
-                                        ? 'text-white after:w-full after:bg-secondary'
-                                        : 'text-white/70 hover:text-white after:w-0 hover:after:w-full after:bg-secondary'
-                                }`}
+                                className={`relative py-2 text-sm font-semibold transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:transition-all after:duration-300 ${
+                                    active ? 'after:w-full' : 'after:w-0 hover:after:w-full'
+                                } ${linkColor}`}
                             >
                                 {label}
                             </Link>
@@ -64,19 +69,23 @@ export default function TopNavBar() {
                     })}
                     <Link
                         href="/contact"
-                        className="ml-3 text-sm font-semibold px-5 py-2 rounded-md transition-all bg-white text-primary hover:bg-secondary hover:text-white shadow-sm shadow-black/10 hover:scale-102"
+                        className={`ml-4 text-sm font-semibold px-6 py-2.5 rounded transition-all shadow-sm ${
+                            scrolled ? 'bg-primary text-white hover:bg-secondary' : 'bg-white text-primary hover:bg-white/90'
+                        }`}
                     >
-                        Get in Touch
+                        Contact Us
                     </Link>
                 </nav>
 
                 {/* Mobile Toggle */}
                 <button
                     onClick={() => setOpen(true)}
-                    className="md:hidden p-2 rounded-md text-white hover:bg-white/10 transition-colors"
+                    className={`md:hidden p-2 rounded transition-colors ${
+                        scrolled ? 'text-primary hover:bg-surface-variant' : 'text-white hover:bg-white/10'
+                    }`}
                     aria-label="Open menu"
                 >
-                    <Menu size={22} />
+                    <Menu size={24} />
                 </button>
             </div>
         </header>
@@ -91,29 +100,34 @@ export default function TopNavBar() {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
                     onClick={() => setOpen(false)}
-                    className="fixed inset-0 bg-black/60 z-[90] md:hidden backdrop-blur-sm"
+                    className="fixed inset-0 bg-black/40 z-[90] md:hidden"
                 />
             )}
             {open && (
                 <motion.nav
                     key="sidebar"
-                    initial={{ x: '100%' }}
-                    animate={{ x: 0 }}
-                    exit={{ x: '100%' }}
+                    initial={{ y: '-100%' }}
+                    animate={{ y: 0 }}
+                    exit={{ y: '-100%' }}
                     transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                    className="fixed top-0 right-0 bottom-0 w-[280px] bg-primary/95 backdrop-blur-lg z-[100] md:hidden flex flex-col shadow-2xl border-l border-white/10 text-white"
+                    className="fixed inset-0 bg-white z-[100] md:hidden flex flex-col text-primary"
                 >
-                    <div className="flex items-center justify-between p-4 md:p-6 border-b border-white/10">
-                        <span className="font-bold text-lg text-white">Menu</span>
+                    <div className="flex items-center justify-between p-5 border-b border-outline-variant">
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded bg-primary text-white flex items-center justify-center text-lg font-bold shadow-sm">
+                                A
+                            </div>
+                            <span className="text-xl font-serif font-bold tracking-tight">Ashwin Group</span>
+                        </div>
                         <button
                             onClick={() => setOpen(false)}
-                            className="p-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+                            className="p-2 rounded text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors"
                             aria-label="Close menu"
                         >
-                            <X size={22} />
+                            <X size={28} />
                         </button>
                     </div>
-                    <div className="flex-1 overflow-y-auto py-4 px-4 space-y-1">
+                    <div className="flex-1 flex flex-col justify-center items-center py-4 px-4 space-y-6">
                         {links.map(({ label, href }) => {
                             const active = url === href;
                             return (
@@ -121,10 +135,10 @@ export default function TopNavBar() {
                                     key={label}
                                     href={href}
                                     onClick={() => setOpen(false)}
-                                    className={`block px-4 py-3 rounded-md text-base font-semibold transition-colors ${
+                                    className={`block text-3xl font-serif font-bold transition-colors ${
                                         active
-                                            ? 'bg-secondary/15 text-white'
-                                            : 'text-white/80 hover:bg-white/10 hover:text-white'
+                                            ? 'text-secondary'
+                                            : 'text-primary hover:text-secondary'
                                     }`}
                                 >
                                     {label}
@@ -132,13 +146,13 @@ export default function TopNavBar() {
                             );
                         })}
                     </div>
-                    <div className="p-4 border-t border-white/10">
+                    <div className="p-6 pb-10 border-t border-outline-variant text-center">
                         <Link
                             href="/contact"
                             onClick={() => setOpen(false)}
-                            className="block text-center bg-white text-primary font-bold px-4 py-3 rounded-md hover:bg-secondary hover:text-white transition-all shadow-sm"
+                            className="inline-block w-full max-w-xs text-center bg-primary text-white font-bold px-6 py-4 rounded hover:bg-secondary transition-all shadow-sm text-lg"
                         >
-                            Get in Touch
+                            Contact Us
                         </Link>
                     </div>
                 </motion.nav>

@@ -10,79 +10,71 @@ const fadeUp = {
     transition: { duration: 0.5 }
 };
 
+const stagger = {
+    animate: { transition: { staggerChildren: 0.1 } }
+};
+
+const fadeIn = {
+    initial: { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
 export default function Contact() {
     return (
         <MainLayout>
             <Head title="Contact Us - Ashwin Group" />
 
             {/* Hero */}
-            <section className="relative px-gutter pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-primary border-b border-outline-variant">
-                {/* Visual Backdrop Overlay */}
+            <section className="relative px-gutter pt-32 pb-16 md:pt-40 md:pb-24 bg-primary flex items-center border-b border-outline-variant">
                 <div className="absolute inset-0 z-0">
                     <img 
                         src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
                         alt="Office Workspace" 
-                        className="w-full h-full object-cover opacity-25 mix-blend-luminosity" 
+                        className="w-full h-full object-cover opacity-20" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/45"></div>
-                    {/* Ambient Glow */}
-                    <div className="absolute top-1/4 right-1/4 w-[350px] h-[350px] bg-secondary/15 rounded-full blur-[120px] pointer-events-none mix-blend-screen animate-pulse" style={{ animationDuration: '6s' }} />
-                    {/* Dotted Pattern */}
-                    <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] pointer-events-none" />
+                    <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
                 </div>
                 
-                <div className="max-w-container-max mx-auto relative z-10">
-                    <div className="max-w-3xl">
-                        <motion.span 
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4 }}
-                            className="inline-block text-xs font-bold text-secondary uppercase tracking-widest bg-secondary-container px-3 py-1 rounded mb-4"
-                        >
-                            Get In Touch
-                        </motion.span>
-                        <motion.h1 
-                            initial={{ opacity: 0, y: 16 }} 
-                            animate={{ opacity: 1, y: 0 }} 
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6"
-                        >
-                            Connect With <span className="text-secondary">Us</span>
-                        </motion.h1>
-                        <motion.p 
-                            initial={{ opacity: 0, y: 16 }} 
-                            animate={{ opacity: 1, y: 0 }} 
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="text-white/80 text-base md:text-lg leading-relaxed"
-                        >
-                            Interested in becoming a distributor, investing in clean energy solutions, or discussing master franchise options? Reach out to our teams.
-                        </motion.p>
+                <div className="max-w-container-max mx-auto relative z-10 w-full text-center md:text-left">
+                    <div className="max-w-4xl mx-auto md:mx-0">
+                        <motion.div initial="initial" animate="animate" variants={stagger} className="max-w-3xl text-center md:text-left">
+                            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 border border-secondary/30 text-secondary-container text-[10px] md:text-xs font-semibold uppercase tracking-wider mb-5 rounded bg-secondary/10 mx-auto md:mx-0">
+                                Get In Touch
+                            </motion.div>
+                            <motion.h1 variants={fadeIn} className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-4 leading-tight">
+                                Connect With <span className="text-secondary-container">Us.</span>
+                            </motion.h1>
+                            <motion.p variants={fadeIn} className="text-base md:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto md:mx-0">
+                                Interested in becoming a distributor, investing in clean energy solutions, or discussing master franchise options? Reach out to our teams.
+                            </motion.p>
+                        </motion.div>
                     </div>
                 </div>
             </section>
 
             {/* Contact Card */}
-            <section className="px-gutter py-12 md:py-16">
+            <section className="px-gutter py-12 md:py-16 bg-surface-container-low">
                 <div className="max-w-container-max mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 rounded-md border border-outline-variant shadow-sm overflow-hidden bg-white">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 border border-outline-variant rounded shadow-sm overflow-hidden bg-white">
 
                         {/* Sidebar */}
-                        <motion.div {...fadeUp} className="lg:col-span-5 bg-primary text-white p-8 md:p-10 relative overflow-hidden">
-                            {/* Decorative circle */}
-                            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-secondary/10 rounded-full" />
+                        <motion.div {...fadeUp} className="lg:col-span-5 bg-primary text-white p-8 md:p-12 relative overflow-hidden">
+                            {/* Decorative element */}
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 -translate-y-1/2 translate-x-1/2 rounded-full" />
+                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 translate-y-1/3 -translate-x-1/3 rounded-full" />
 
                             <div className="relative z-10">
-                                <h2 className="text-2xl font-bold mb-2">Corporate Office</h2>
-                                <p className="text-white/60 text-sm mb-8">Direct lines to our division managers.</p>
+                                <h2 className="text-3xl font-serif font-bold mb-3">Corporate Office</h2>
+                                <p className="text-white/80 text-base mb-10">Direct lines to our division managers.</p>
 
-                                <div className="space-y-6">
-                                    <div className="flex gap-4">
-                                        <div className="w-10 h-10 bg-white/10 rounded-md flex items-center justify-center shrink-0">
-                                            <Building className="text-secondary" size={20} />
+                                <div className="space-y-8">
+                                    <div className="flex gap-5">
+                                        <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                            <Building className="text-secondary" size={24} />
                                         </div>
                                         <div>
-                                            <div className="font-semibold text-secondary text-sm mb-1">HQ Address</div>
-                                            <p className="text-white/70 text-sm leading-relaxed">
+                                            <div className="font-bold text-secondary text-sm tracking-widest uppercase mb-1.5">HQ Address</div>
+                                            <p className="text-white/80 text-base leading-relaxed">
                                                 Ashwin House, Corporate Lane<br />
                                                 Exhibition Road Area<br />
                                                 Patna, Bihar 800001
@@ -90,35 +82,35 @@ export default function Contact() {
                                         </div>
                                     </div>
 
-                                    <div className="flex gap-4">
-                                        <div className="w-10 h-10 bg-white/10 rounded-md flex items-center justify-center shrink-0">
-                                            <Phone className="text-secondary" size={20} />
+                                    <div className="flex gap-5">
+                                        <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                            <Phone className="text-secondary" size={24} />
                                         </div>
                                         <div>
-                                            <div className="font-semibold text-secondary text-sm mb-1">Distributor Hotlines</div>
-                                            <p className="text-white/70 text-sm">9507488833</p>
-                                            <p className="text-white/70 text-sm">9507488844</p>
+                                            <div className="font-bold text-secondary text-sm tracking-widest uppercase mb-1.5">Distributor Hotlines</div>
+                                            <p className="text-white/80 text-base font-serif">9507488833</p>
+                                            <p className="text-white/80 text-base font-serif">9507488844</p>
                                         </div>
                                     </div>
 
-                                    <div className="flex gap-4">
-                                        <div className="w-10 h-10 bg-white/10 rounded-md flex items-center justify-center shrink-0">
-                                            <Mail className="text-secondary" size={20} />
+                                    <div className="flex gap-5">
+                                        <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                            <Mail className="text-secondary" size={24} />
                                         </div>
                                         <div>
-                                            <div className="font-semibold text-secondary text-sm mb-1">Emails</div>
-                                            <p className="text-white/70 text-sm">distributors@ashwingroup.com</p>
-                                            <p className="text-white/70 text-sm">info@ashwingroup.com</p>
+                                            <div className="font-bold text-secondary text-sm tracking-widest uppercase mb-1.5">Emails</div>
+                                            <p className="text-white/80 text-base">distributors@ashwingroup.com</p>
+                                            <p className="text-white/80 text-base">info@ashwingroup.com</p>
                                         </div>
                                     </div>
 
-                                    <div className="flex gap-4">
-                                        <div className="w-10 h-10 bg-white/10 rounded-md flex items-center justify-center shrink-0">
-                                            <Clock className="text-secondary" size={20} />
+                                    <div className="flex gap-5">
+                                        <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                            <Clock className="text-secondary" size={24} />
                                         </div>
                                         <div>
-                                            <div className="font-semibold text-secondary text-sm mb-1">Office Hours</div>
-                                            <p className="text-white/70 text-sm">Mon – Sat: 10:00 AM – 6:00 PM</p>
+                                            <div className="font-bold text-secondary text-sm tracking-widest uppercase mb-1.5">Office Hours</div>
+                                            <p className="text-white/80 text-base">Mon – Sat: 10:00 AM – 6:00 PM</p>
                                         </div>
                                     </div>
                                 </div>
@@ -126,34 +118,34 @@ export default function Contact() {
                         </motion.div>
 
                         {/* Form */}
-                        <motion.div {...fadeUp} transition={{ delay: 0.1, duration: 0.5 }} className="lg:col-span-7 p-8 md:p-10">
-                            <h2 className="text-2xl font-bold text-primary mb-1">Send us a Message</h2>
-                            <p className="text-on-surface-variant text-sm mb-8">We will connect you with the appropriate division head within 24 hours.</p>
+                        <motion.div {...fadeUp} transition={{ delay: 0.1, duration: 0.5 }} className="lg:col-span-7 p-8 md:p-12">
+                            <h2 className="text-3xl font-serif font-bold text-primary mb-2">Send us a Message</h2>
+                            <p className="text-on-surface-variant text-base mb-8">We will connect you with the appropriate division head within 24 hours.</p>
 
                             <form className="space-y-5">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-primary mb-1.5">Full Name</label>
+                                        <label htmlFor="name" className="block text-sm font-bold text-primary mb-2">Full Name</label>
                                         <input type="text" id="name" placeholder="John Doe"
-                                            className="w-full px-4 py-2.5 bg-surface-variant border border-outline-variant rounded-md text-primary placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-colors" />
+                                            className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-sm text-primary placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors" />
                                     </div>
                                     <div>
-                                        <label htmlFor="phone" className="block text-sm font-medium text-primary mb-1.5">Phone Number</label>
+                                        <label htmlFor="phone" className="block text-sm font-bold text-primary mb-2">Phone Number</label>
                                         <input type="text" id="phone" placeholder="9507488833"
-                                            className="w-full px-4 py-2.5 bg-surface-variant border border-outline-variant rounded-md text-primary placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-colors" />
+                                            className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-sm text-primary placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors" />
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-primary mb-1.5">Email Address</label>
+                                        <label htmlFor="email" className="block text-sm font-bold text-primary mb-2">Email Address</label>
                                         <input type="email" id="email" placeholder="john@example.com"
-                                            className="w-full px-4 py-2.5 bg-surface-variant border border-outline-variant rounded-md text-primary placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-colors" />
+                                            className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-sm text-primary placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors" />
                                     </div>
                                     <div>
-                                        <label htmlFor="interest" className="block text-sm font-medium text-primary mb-1.5">Division of Interest</label>
+                                        <label htmlFor="interest" className="block text-sm font-bold text-primary mb-2">Division of Interest</label>
                                         <select id="interest"
-                                            className="w-full px-4 py-2.5 bg-surface-variant border border-outline-variant rounded-md text-primary focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-colors">
+                                            className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-sm text-primary focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors">
                                             <option value="water">Ashwin Water Industries (Beverages)</option>
                                             <option value="energy">Ashwin Energie Pvt. Ltd. (Solar & EV)</option>
                                             <option value="traders">Ashwin Traders (Distribution & Logistics)</option>
@@ -163,21 +155,21 @@ export default function Contact() {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="subject" className="block text-sm font-medium text-primary mb-1.5">Subject</label>
+                                    <label htmlFor="subject" className="block text-sm font-bold text-primary mb-2">Subject</label>
                                     <input type="text" id="subject" placeholder="Distributor Application"
-                                        className="w-full px-4 py-2.5 bg-surface-variant border border-outline-variant rounded-md text-primary placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-colors" />
+                                        className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-sm text-primary placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors" />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="message" className="block text-sm font-medium text-primary mb-1.5">Message / Message Details</label>
-                                    <textarea id="message" rows={4} placeholder="Let us know your location, business background, and investment capability..."
-                                        className="w-full px-4 py-2.5 bg-surface-variant border border-outline-variant rounded-md text-primary placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-colors resize-none" />
+                                    <label htmlFor="message" className="block text-sm font-bold text-primary mb-2">Message Details</label>
+                                    <textarea id="message" rows={5} placeholder="Let us know your location, business background, and investment capability..."
+                                        className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-sm text-primary placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors resize-none" />
                                 </div>
 
                                 <button type="button"
-                                    className="w-full sm:w-auto bg-primary text-white font-semibold px-6 py-3 rounded-md hover:bg-secondary transition-colors flex items-center justify-center gap-2 group">
-                                    Send Message
-                                    <Send size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                    className="w-full sm:w-auto bg-primary text-white font-bold tracking-wide px-8 py-3.5 hover:bg-secondary transition-colors flex items-center justify-center gap-2 group mt-4 border border-transparent hover:border-secondary">
+                                    Submit Inquiry
+                                    <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </button>
                             </form>
                         </motion.div>
